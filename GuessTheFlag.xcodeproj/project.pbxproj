@@ -80,11 +80,11 @@
 		6D90122224E4ED9D0089268C = {
 			isa = PBXGroup;
 			children = (
-				6DF0995625042FE100A6CBCB /* README.md */,
 				6D90122D24E4ED9D0089268C /* GuessTheFlag */,
 				6D90124424E4ED9F0089268C /* GuessTheFlagTests */,
 				6D90124F24E4ED9F0089268C /* GuessTheFlagUITests */,
 				6D90122C24E4ED9D0089268C /* Products */,
+				6DF0995625042FE100A6CBCB /* README.md */,
 			);
 			sourceTree = "<group>";
 		};

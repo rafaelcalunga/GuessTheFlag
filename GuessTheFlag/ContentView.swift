@@ -26,11 +26,10 @@ struct ContentView: View {
     
     @State private var correctAnswer = Int.random(in: 0...2)
     
-    @State private var showingScore = false
-    @State private var scoreTitle = ""
+    @State private var showScore = false
+    @State private var isCorrectAnswer = false
     
     @State private var animationAmount = 0.0
-    @State private var enableAnimation = false
     
     var body: some View {
         
@@ -55,13 +54,11 @@ struct ContentView: View {
                     Button(action: {
                         self.flagTapped(number)
                         
-                        if number == self.correctAnswer {
-                            withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
-                                self.animationAmount += 360
-                            }
+                        withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
+                            self.animationAmount += 360
                         }
                     }) {
-                        if self.enableAnimation {
+                        if self.showScore {
                             if number == self.correctAnswer {
                                 FlagImage(name: self.countries[number])
                                     .rotation3DEffect(.degrees(self.animationAmount), axis: (x: 0, y: 1, z: 0))
@@ -74,31 +71,57 @@ struct ContentView: View {
                         }
                     }
                 }
+                if showScore {
+                    Spacer()
+                    
+                    if isCorrectAnswer {
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                                .font(.largeTitle)
+                            Text("Correct")
+                                .foregroundColor(.green)
+                                .font(.largeTitle)
+                        }
+                    } else {
+                        HStack {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.red)
+                                .font(.largeTitle)
+                            Text("Wrong")
+                                .foregroundColor(.red)
+                                .font(.largeTitle)
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: restartGame) {
+                        Text("Try another")
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .cornerRadius(40)
+                }
                 
                 Spacer()
             }
-        }.alert(isPresented: $showingScore) {
-            Alert(title: Text(scoreTitle), message: Text("Your score is ???"), dismissButton:
-                .default(Text("Continue")) {
-                    self.askQuestion()
-                })
         }
     }
     
     func flagTapped(_ number: Int) {
-        if number == correctAnswer {
-            scoreTitle = "Correct"
-        } else {
-            scoreTitle = "Wrong"
+        if !showScore {
+            isCorrectAnswer = number == correctAnswer
+            showScore = true
         }
-        enableAnimation = true
-        showingScore = true
     }
     
-    func askQuestion() {
+    func restartGame() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
-        enableAnimation = false
+        showScore = false
     }
 }
 
