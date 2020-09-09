@@ -29,6 +29,9 @@ struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
     
+    @State private var animationAmount = 0.0
+    @State private var enableAnimation = false
+    
     var body: some View {
         
         ZStack {
@@ -51,14 +54,24 @@ struct ContentView: View {
                 ForEach(0 ..< 3) { number in
                     Button(action: {
                         self.flagTapped(number)
-                    }) {
-                        /*Image(self.countries[number])
-                            .renderingMode(.original)
-                            .clipShape(Capsule())
-                            .overlay(Capsule().stroke(Color.black, lineWidth: 1))
-                            .shadow(color: .black, radius: 2)*/
                         
-                        FlagImage(name: self.countries[number])
+                        if number == self.correctAnswer {
+                            withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
+                                self.animationAmount += 360
+                            }
+                        }
+                    }) {
+                        if self.enableAnimation {
+                            if number == self.correctAnswer {
+                                FlagImage(name: self.countries[number])
+                                    .rotation3DEffect(.degrees(self.animationAmount), axis: (x: 0, y: 1, z: 0))
+                            } else {
+                                FlagImage(name: self.countries[number])
+                                    .opacity(0.25)
+                            }
+                        } else {
+                            FlagImage(name: self.countries[number])
+                        }
                     }
                 }
                 
@@ -78,13 +91,14 @@ struct ContentView: View {
         } else {
             scoreTitle = "Wrong"
         }
-        
+        enableAnimation = true
         showingScore = true
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        enableAnimation = false
     }
 }
 
