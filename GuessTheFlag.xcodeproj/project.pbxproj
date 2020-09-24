@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D90122F24E4ED9D0089268C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90122E24E4ED9D0089268C /* AppDelegate.swift */; };
-		6D90123124E4ED9D0089268C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90123024E4ED9D0089268C /* SceneDelegate.swift */; };
+		6D90122F24E4ED9D0089268C /* GuesTheFlagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90122E24E4ED9D0089268C /* GuesTheFlagApp.swift */; };
 		6D90123324E4ED9D0089268C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90123224E4ED9D0089268C /* ContentView.swift */; };
 		6D90123524E4ED9E0089268C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D90123424E4ED9E0089268C /* Assets.xcassets */; };
 		6D90123824E4ED9E0089268C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D90123724E4ED9E0089268C /* Preview Assets.xcassets */; };
@@ -36,8 +35,7 @@
 
 /* Begin PBXFileReference section */
 		6D90122B24E4ED9D0089268C /* GuessTheFlag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheFlag.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D90122E24E4ED9D0089268C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6D90123024E4ED9D0089268C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6D90122E24E4ED9D0089268C /* GuesTheFlagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesTheFlagApp.swift; sourceTree = "<group>"; };
 		6D90123224E4ED9D0089268C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6D90123424E4ED9E0089268C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D90123724E4ED9E0089268C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -101,8 +99,7 @@
 		6D90122D24E4ED9D0089268C /* GuessTheFlag */ = {
 			isa = PBXGroup;
 			children = (
-				6D90122E24E4ED9D0089268C /* AppDelegate.swift */,
-				6D90123024E4ED9D0089268C /* SceneDelegate.swift */,
+				6D90122E24E4ED9D0089268C /* GuesTheFlagApp.swift */,
 				6D90123224E4ED9D0089268C /* ContentView.swift */,
 				6D90123424E4ED9E0089268C /* Assets.xcassets */,
 				6D90123924E4ED9E0089268C /* LaunchScreen.storyboard */,
@@ -269,8 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D90122F24E4ED9D0089268C /* AppDelegate.swift in Sources */,
-				6D90123124E4ED9D0089268C /* SceneDelegate.swift in Sources */,
+				6D90122F24E4ED9D0089268C /* GuesTheFlagApp.swift in Sources */,
 				6D90123324E4ED9D0089268C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +436,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GuessTheFlag/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GuessTheFlag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +456,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GuessTheFlag/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GuessTheFlag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
